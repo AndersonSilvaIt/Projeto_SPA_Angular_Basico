@@ -1,0 +1,33 @@
+1 - criado o componente entro da pasta menu
+
+ng g c navegacao/menu
+
+foi criado apenas o arquivo .ts,
+para criar os outros arquivos é necessário alterar na configuração do angular.js
+
+
+          "inlineTemplate": false,
+          "inlineStyle": false,
+          "skipTests": true
+		  
+dentro do arquivo,menu.components.ts é setado o nome da tag que será usada para obter o menu
+selector: 'app-menu',
+
+criado o componente home
+
+ng g c navegacao/menu
+
+criado o componente rodapé
+
+ng g c navegacao/footer
+
+após criar os componentes, os mesmose serão refernciados no arquivo app.modules.ts
+
+depois basta no arquivo principal app.component.html referenciar os outros componentes pela tag deles
+ex: <app-menu></app-menu>
+o mesmo nome dado no arquivo menu.component.ts
+
+@Component({
+  selector: 'app-menu',
+  templateUrl: './menu.component.html'
+})
