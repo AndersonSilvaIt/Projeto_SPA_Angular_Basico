@@ -1,0 +1,10 @@
+ng new --minimal -g MeuProjeto
+minimal = somente o básico para o angular
+- g não cria os arquivos git
+
+o processo de roteamento será criado manualmente, então quando surgir a pergunta, escolher "N"
+
+Entrar na pasta do projeto, e abrir com o vscode
+
+code .
+
