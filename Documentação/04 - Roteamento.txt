@@ -1,0 +1,26 @@
+criado o componente institucional/sobre
+		 componente institucional/contato
+		 
+criado o arquivo de rotas, app.route.ts
+
+quando solicitado o localhost:4200/#  será apresentado um erro, isso precisa ser  configurado
+
+para resolver é necessário configurar o app.module
+
+import { APP_BASE_HREF} from '@angular/common'
+
+import { RouterModule } from '@angular/router'
+
+nos providers
+
+  providers: [
+    { provide: APP_BASE_HREF, useValue: '/'} // configuração realizada para quando informar /# no link
+  ],
+  
+após implementar essas configurações, no html do menu, nos links, é preciso alterar os href por uma diretiva do angular/common
+RouterLink
+
+ex: [router-link]="['/home']"
+	precisa ser o mesmo nome que foi criado nas configurações de rotas
+	
+	
