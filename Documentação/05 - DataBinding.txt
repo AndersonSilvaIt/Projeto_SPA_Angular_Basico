@@ -1,0 +1,41 @@
+Tipos de DataBindins
+
+Interpolation = {{ meuDado }} = usado como interpolação , meuDado é uma variável
+
+<label>Nome: {{ meuDado }}</label>
+
+
+PropertyBinding = define o valor de uma propriedade do html
+
+<img [src]="minhaUrl"> -> minhaUrl é uma variável,
+para realizar o binding dessa forma é necessário colocar o src entre colchetess
+é a mesma forma de utilizar o exemplo anterior
+
+<img src="{{minhaUrl}}">
+
+Conceito One Way Binding, o valor vem do componente e vai até a propriedade do HTML
+somente para fins visuais, renderizar o html
+
+
+
+Event Binding, ele realiza a função a contrária, do template para o componente
+utilizando o event binding
+
+<button (click)='clickContador()'>Clique-me</button>
+o nome do evento é chamado dentre parenteses
+
+clickContador é uma função que está no código do componente
+
+muito utilizado em submissão de formulário
+
+
+Two-way binding
+faz os dois caminhos, exibe as propriedades no html, e chama os eventos através do html
+
+<input class="form-control" type="text" [(ngmodel)]="evento.nome"></input>
+<label>Nome do evento: {{evento.nome}} </label>
+
+é a união do property-binding com event-binding
+
+
+[(ngmodel)]="evento.nome" = se o nome for atualizado, no template também é atualizado e vice versa, se for alterado no html, no component também é alterado

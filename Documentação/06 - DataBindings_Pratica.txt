@@ -1,0 +1,85 @@
+Criado um componente para teste
+
+ng g c demos/DataBinding
+
+implementado o componente no arquivo de rotas
+
+{ path:'feature-data-binding', component: DataBindingComponent}
+
+implementado também no menu de navegação
+
+implementado uma variável no componente contadorClique
+
+e é usado no html
+	<!-- Interpolation -->
+    <p>O número de cliques é : {{ contadorClique}}</p>
+	
+	<!-- Property Info, o botão é desabilidade se o contador é maior ou igual que 10 -->
+	<button class="btn btn-info" [disabled]="contadorClique >= 10">Info</button>
+	
+	<!-- Property Info, o caminho da imagem virá de uma variável -->
+	<img [src]="urlImagem" height="50px" width="50px" />
+	
+	<!-- Event Binding -->
+	<button class="btn btn-warning" (click)='adicionarClique()'>Clieue-me</button>
+	adicionarClique => função que precisa ser implementada no componente
+	
+  adicionarClique(){
+      this.contadorClique++;
+  }
+
+obs: quando atualizo esse propriedade contadorClique, automaticamnte no html também é alterado o valor  
+
+
+    <!-- Two-way Binding --> Forma básica (ainda não é o two-way binding)
+    <input type="text" (keyup)='KeyUp($event)' praceholder="Digite seu nome">
+    <br>
+    <br>
+    <label>Seu nome é: {{nome}} </label>
+	
+	Quando eu ergo o dedo do teclado ele chama a função que está no component, e lá atualizao valor da variável nome que é usada no 
+	label.
+	
+	
+	<!-- Aqui é implementado o two-way data-binding-->, o negModel preenche automaticamente a variavel nome,
+	porém para utilizar o mesmo, é necessário importar um módulo FormsModule
+	
+	import { FormsModule } from '@angular/forms'
+	no arquivo appModule.ts
+	
+	e implementar na parte de importação
+  imports: [
+    BrowserModule,
+    FormsModule,
+    [RouterModule.forRoot(rootRouterConfig, { useHash: false })]
+  ]	
+	
+	<input type="text" [ngModel]="nome" (ngModelChange)='nome = $event' placeholder="Digite seu nome">
+    <br>
+    <br>
+    <label>Seu nome é: {{ nome }}</label>
+	<!-- Ainda não é o two-way binding -->
+	
+	
+	<!-- Esse é o two-way binding -->
+    <input type="text" [(ngModel)]="nome" placeholder="Digite seu nome">
+    <br>
+    <br>
+    <label class="{{ nome }}">Seu nome é: {{ nome }}</label>	
+	a classe também pode ser alterado com esse caso, se colocar btn btn-danger, o label irá virar um botão
+	
+	<label [ngClass]="nome" >Seu nome é: {{ nome }}</label>	
+	a classe também poderia ser utilizada dessa forma
+	
+	
+	<!-- o ngModel [()] que configura esse modelo de binding-->
+	
+	
+    <p [ngClass]="{
+        'text-secondary': contadorClique < 3,
+        'text-success':contadorClique >=3,
+        'text-warning':contadorClique >= 5,
+        'text-danger':contadorClique >=9
+    }">O número de cliques é : {{ contadorClique}}</p>	
+	esse caso, eu altero as classes conforme o campo do componente
+	
