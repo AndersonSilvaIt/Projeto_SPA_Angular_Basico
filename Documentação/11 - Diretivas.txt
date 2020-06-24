@@ -1,0 +1,47 @@
+if else,
+switch e etc
+
+ngif
+
+ngswitch ..
+
+ex:
+
+                <div *ngIf="!produto.promocao" class="card-body">
+                    <h4 class="card-title">{{ produto.nome | titlecase }}</h4>
+                    <p>Por apenas:</p>
+                    <div><h4>{{ produto.valor | currency:'BRL':symbol:'1.2-2':'pt' }}</h4></div>
+                </div>
+				
+		se o produto não for promoção, não aparece algumas coisas
+		
+                <div *ngIf="produto.promocao" class="card-body">
+                    <div><h4 class="card-text">De:
+                        <small><del> {{ produto.valor | currency:'BRL':symbol:'1.2-2':'pt' }}</del></small>
+                        Por: {{ produto.valorPromo | currency:'BRL':symbol:'1.2-2':'pt' }}
+                    </h4></div>
+                </div>   
+
+se valor tiver promoção, aparece o html formatado acima				
+Código completo
+
+                <div *ngIf="produto.promocao" class="card-body">
+                    <div><h4 class="card-text">De:
+                        <small><del> {{ produto.valor | currency:'BRL':symbol:'1.2-2':'pt' }}</del></small>
+                        Por: {{ produto.valorPromo | currency:'BRL':symbol:'1.2-2':'pt' }}
+                    </h4></div>
+                </div>                
+
+                <div *ngIf="!produto.promocao" class="card-body">
+                    <div><h4>{{ produto.valor | currency:'BRL':symbol:'1.2-2':'pt' }}</h4></div>
+                </div>
+				
+
+ngswitch
+
+                <div [ngSwitch]="produto.promocao">
+                    <p *ngSwitchCase="true">Promoção</p>
+                    <p *ngSwitchCase="false">Por apenas: </p>
+                </div>
+				
+				exemplo de Switch

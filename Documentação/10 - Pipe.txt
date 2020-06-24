@@ -1,0 +1,23 @@
+o Pipe transforma a apresentação de um dado
+
+ex: moeda
+
+<h4 class="card-title">{{ produto.nome | titlecase }}</h4>
+
+esse caso usando o | titlecase => deixa a primeira letra maiúscula
+
+para obter as configurações de PT-BR, é necessário importar no appModule
+
+import { registerLocaleData } from '@angular/common'
+
+também necessário importar a linguagem
+import localPt from '@angular/common/locales/pt'
+
+após isso, é preciso fazer o registro desse idioma
+
+registerLocaleData(localPt);
+
+
+<div><h4>{{ produto.valor | currency:'BRL':symbol:'1.2-2':'pt' }}</h4></div>
+
+1.2-2 terá no máximo 2 casas depois da vírgula

@@ -4,6 +4,12 @@ import { APP_BASE_HREF} from '@angular/common'
 
 import { HttpClientModule } from '@angular/common/http'
 
+import { registerLocaleData } from '@angular/common'
+import localPt from '@angular/common/locales/pt'
+
+registerLocaleData(localPt);
+
+
 import { RouterModule } from '@angular/router'
 import { AppComponent } from './app.component';
 import { MenuComponent } from './navegacao/menu/menu.component';
