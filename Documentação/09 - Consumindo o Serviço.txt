@@ -1,0 +1,28 @@
+Criado o componente de listagem de produtos
+
+ng g c produtos/ListaProduto
+
+implementado esse componente nas rotas
+
+no componente é injetado o produtoService no construtor
+
+  constructor(private produtoService: ProdutoService) { }
+
+
+o angular utiliza o *ngFor="let produto of produtos" para fazer um array e gerar uma listagem
+o "produtos" é a variável que está no componente
+
+ao rodar a aplicação foi gerado um erro com o HttpClient
+
+para resolver esse caso, é necessário importar o HttpClientModule no appModule
+
+import { HttpClientModule } from '@angular/common/http'
+
+e colocar esse cara nos imports do appModule
+
+para funcionar essa aplicação, é necessário estar rodando o json-server
+json-server --watch produtos.json
+
+localhost:3000/produtos
+
+ai sim chamar a página de produtos

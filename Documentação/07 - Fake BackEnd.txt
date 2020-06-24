@@ -1,0 +1,13 @@
+Instalado o pacote json server para simular o backend
+
+npm i json-server
+
+colocado na pasta o arquivo de produtos.json
+
+para rodar o server basta rodar o comando
+
+json-server --watch produtos.json
+
+ao executar esse somando, ele ficará disponível na porta 3000 por exemplo
+basta rodar o localhost:3000/produtos
+

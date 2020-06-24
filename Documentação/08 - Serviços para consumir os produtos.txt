@@ -1,0 +1,36 @@
+criado o arquivo de serviço
+
+produtos.service.ts
+
+todo serviço é necessário ter o Injectable
+
+importante registrar esse serviço no appModule, nos providers
+
+providers: [
+    ProdutoService,
+    { provide: APP_BASE_HREF, useValue: '/'} // configuração realizada para quando informar /# no link
+  ],
+  
+isso é para a injeção de dependência, quando uma classe  chamar esse cara no construtor, o Angular irá registrar essa classe por injeção
+
+
+o Angular possui o HttpClient para acesso de recursos externos
+
+
+    constructor(private http: HttpClient){
+
+    }
+	
+	é injetado no construtor da classe, para isso é preciso realizar a importação desse arquivo
+	import { HttpClient } from '@angular/common/http'
+	
+	criado a classe Produto.ts, para retornar a lista de produtos tipados no método acima
+	
+	Utilizado o Observable, é uma callback ex:
+	o observable espera receber toda a lista de produto, quando terminar ele "avisa"
+	consulta asyncrona
+	
+        return this.http
+            .get<Produto[]>(this.urlServiceV1 + "produtos")
+
+a serialização ocorre de forma automática quando realizo o get<Produto[]>			
